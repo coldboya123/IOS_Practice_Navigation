@@ -10,11 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var txtX: UITextField!
+    @IBOutlet weak var txtY: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func NavigateToXanh(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let xanhVC = sb.instantiateViewController(withIdentifier: "XANH") as! XANH_ViewController
+        xanhVC.x = Int(txtX.text!)
+        xanhVC.y = Int(txtY.text!)
+        self.navigationController?.pushViewController(xanhVC, animated: true)
+    }
+    
 }
 
